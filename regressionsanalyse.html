@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Hierarchische multiple Regression: Störvariablen bei Kriminalitätsdaten herauspartialisieren</title>
+    
+    <meta name="description" content="Mit hierarchischer Regression wird geprüft, ob kulturspezifische Prägung Kriminalität auch nach Kontrolle von Alter, Geschlecht, Bildung, Armut und sozialem Status eigenständig erklärt.">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="DEIN_VERIFIKATIONSCODE_HIER">
+
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-37CLNTBSNG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-37CLNTBSNG');
+    </script>
+
+    <!-- Gemeinsame CSS-Datei -->
+    <link rel="stylesheet" href="style.css">
+
+<link rel="canonical" href="https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "WebSite",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/#website",
+      "url": "https://kausalitaetsnachweis.kuhlmei.ch/",
+      "name": "Kausalitätsnachweis",
+      "publisher": {
+        "@id": "https://kausalitaetsnachweis.kuhlmei.ch/#organization"
+      }
+    },
+
+    {
+      "@type": "WebPage",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html#webpage",
+      "url": "https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html",
+      "name": "Wie die hierarchische multiple Regressionsanalyse Störvariablen bei Kriminalitätsdaten herauspartialisiert",
+      "isPartOf": {
+        "@id": "https://kausalitaetsnachweis.kuhlmei.ch/#website"
+      },
+      "breadcrumb": {
+        "@id": "https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html#breadcrumb"
+      },
+      "description": "Mit hierarchischer Regression wird geprüft, ob kulturspezifische Prägung Kriminalität auch nach Kontrolle von Alter, Geschlecht, Bildung, Armut und sozialem Status eigenständig erklärt.",
+      "inLanguage": "de"
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Start",
+          "item": "https://kausalitaetsnachweis.kuhlmei.ch/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Multiple Regressionsanalyse",
+          "item": "https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html"
+        }
+      ]
+    },
+
+    {
+      "@type": "Article",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html#article",
+      "headline": "Wie die hierarchische multiple Regressionsanalyse Störvariablen bei Kriminalitätsdaten herauspartialisiert",
+      "description": "Mit hierarchischer Regression wird geprüft, ob kulturspezifische Prägung Kriminalität auch nach Kontrolle von Alter, Geschlecht, Bildung, Armut und sozialem Status eigenständig erklärt.",
+      "author": {
+        "@id": "https://urban.kuhlmei.ch/#person"
+      },
+      "publisher": {
+        "@id": "https://kausalitaetsnachweis.kuhlmei.ch/#organization"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html#webpage"
+      },
+      "inLanguage": "de"
+    },
+
+    {
+      "@type": "Person",
+      "@id": "https://urban.kuhlmei.ch/#person",
+      "name": "Dr. Eckehard Kuhlmei",
+      "url": "https://urban.kuhlmei.ch"
+    },
+
+    {
+      "@type": "Organization",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/#organization",
+      "name": "Kausalitätsnachweis",
+      "url": "https://kausalitaetsnachweis.kuhlmei.ch"
+    }
+
+  ]
+}
+</script>
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="zusammenhaenge.html">Zusammenhänge</a></li>
+            <li><a href="kausalinterpretationen.html">Kausalinterpretationen</a></li>
+            <li><a href="experiment.html">Experiment</a></li>
+            <li><a href="regressionsanalyse.html">Multiple Regressionsanalyse</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="https://urban.kuhlmei.ch" style="color:#a3d4ff;">Hauptseite</a></li>
+        </ul>
+    </nav>
+
+    <!-- Seiteninhalt -->
+    <main class="page-wrapper">
+
+        <h1>Wie die hierarchische multiple Regressionsanalyse Störvariablen bei Kriminalitätsdaten herauspartialisiert</h1>
+
+<p>Die hierarchische multiple Regressionsanalyse ist ein statistisches Verfahren, mit dem der Einfluss potenzieller Störvariablen z kontrolliert wird, ohne dass man sie experimentell ausschalten oder konstant halten kann. Gerade im Bereich Kriminalität sind Experimente aus ethischen Gründen ausgeschlossen: Man kann Menschen nicht zufällig „kriminell machen“, ihnen Gewalt aussetzen oder sie in riskante Lebenslagen versetzen. Deshalb ist die statistische Kontrolle von Störvariablen hier unverzichtbar.</p>
+
+<p>Die hierarchische Regression ermöglicht es, den Einfluss dieser Störvariablen herauszupartialisieren – also statistisch zu entfernen –, um zu prüfen, ob eine Variable x einen eigenständigen Beitrag zur Erklärung der Kriminalität y leistet.</p>
+
+<h2>Grundprinzip der hierarchischen Regression</h2>
+
+<p>1. <strong>Block 1:</strong> Zuerst werden alle relevanten Störvariablen z in das Modell aufgenommen. Das Modell erklärt nun die Varianz in y, die durch diese Störvariablen verursacht wird.</p>
+
+<p>2. <strong>Block 2:</strong> Danach wird die interessierende Variable x hinzugefügt. Jetzt prüft man, ob x zusätzliche Varianz in y erklärt, nachdem der Einfluss der Störvariablen bereits berücksichtigt wurde.</p>
+
+<p>Wenn x nach Kontrolle von z weiterhin signifikant ist, besitzt x einen eigenständigen kausalen Beitrag.</p>
+
+<h2>Anschauliches Beispiel aus der Kriminalitätsforschung</h2>
+
+<h3>Fragestellung</h3>
+<p>Wir wollen untersuchen, ob <strong>kulturspezifische Prägungen (x)</strong> einen eigenständigen Einfluss auf den <strong>Schweregrad der Kriminalität (y)</strong> haben.</p>
+
+<p>Ein Experiment wäre unmöglich: Man kann Menschen nicht zufällig bestimmten kulturellen Milieus zuweisen oder sie künstlich „prägen“. Also bleibt nur die statistische Kontrolle.</p>
+
+<h3>Block 1: Störvariablen einfügen</h3>
+
+<p>Zuerst werden die wichtigsten bekannten Einflussfaktoren auf Kriminalität in das Modell aufgenommen:</p>
+
+<ul>
+    <li>Alter (z₁)</li>
+    <li>Geschlecht (z₂)</li>
+    <li>Bildung (z₃)</li>
+    <li>Armut (z₄)</li>
+    <li>sozialer Status (z₅)</li>
+</ul>
+
+<p>Diese Variablen erklären einen großen Teil der Unterschiede im Kriminalitätsniveau.</p>
+
+<p><strong>Interpretation:</strong> Wir wissen jetzt, wie gut man Kriminalität allein durch Alter, Geschlecht, Bildung, Armut und sozialen Status vorhersagen kann.</p>
+
+<h3>Block 2: Kulturspezifische Prägung hinzufügen</h3>
+
+<p>Im zweiten Schritt wird die Variable <strong>kulturspezifische Prägung (x)</strong> in das Modell aufgenommen.</p>
+
+<p>Jetzt prüft man:</p>
+
+<p><em>Erklärt kulturspezifische Prägung zusätzliche Varianz im Schweregrad der Kriminalität, nachdem Alter, Geschlecht, Bildung, Armut und sozialer Status bereits berücksichtigt wurden?</em></p>
+
+<h4>Wenn ja:</h4>
+<p>Kulturspezifische Prägung hat einen eigenständigen Einfluss auf Kriminalität. Der Effekt ist nicht dadurch erklärbar, dass bestimmte kulturelle Gruppen im Durchschnitt jünger, ärmer oder anders gebildet sind oder sich im sozialen Status unterscheiden oder unterschiedliche Geschlechtsverteilungen aufweisen.</p>
+
+<h4>Wenn nein:</h4>
+<p>Der Zusammenhang zwischen kultureller Prägung und Kriminalität war nur scheinbar – er verschwindet, sobald die Störvariablen kontrolliert werden.</p>
+
+<h2>Warum dieses Vorgehen kausale Aussagen stärkt</h2>
+
+<p>Durch das Herauspartialisieren der Störvariablen wird statistisch sichergestellt:</p>
+
+<ul>
+    <li>dass Unterschiede im Schweregrad der Kriminalität nicht durch Alter, Geschlecht, Bildung, Armut oder sozialen Status erklärt werden,</li>
+    <li>dass der Effekt der kulturspezifischen Prägung bereinigt ist,</li>
+    <li>dass der verbleibende Effekt eigenständig und kausal interpretierbar ist.</li>
+</ul>
+
+<p>Die hierarchische Regression ist damit das zentrale Werkzeug, um in nicht‑experimentellen Bereichen wie Kriminalität valide kausale Aussagen zu treffen.</p>
+
+
+<!-- Zentrierter Link zurück -->
+<div style="text-align:center; margin-top:40px;">
+    <a href="https://urban.kuhlmei.ch/kausalitätsnachweis.html" class="back-link" style="color:#a3d4ff;">
+        Zurück zur Hauptseite
+    </a>
+</div>
+
+
+</main>
+
+<!-- Button Nach oben -->
+<p class="back-to-top-wrapper" style="position:fixed; bottom:20px; right:20px;">
+    <a href="#top" class="back-to-top">Nach oben</a>
+</p>
+
+
+</body>
+</html>

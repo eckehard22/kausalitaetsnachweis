@@ -1,0 +1,112 @@
+/* ---------------------------------------------------------
+   GLOBAL
+--------------------------------------------------------- */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("hintergkn.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #000;
+}
+
+/* ---------------------------------------------------------
+   NAVIGATION – Marmor-Dunkelgrau, glänzend, zentriert
+--------------------------------------------------------- */
+
+.main-nav {
+    background: linear-gradient(135deg, #2f2f2f, #4a4a4a);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;      /* ZENTRIERTE NAVIGATION */
+    align-items: center;
+}
+
+.main-nav li {
+    margin: 0;
+}
+
+.main-nav a {
+    display: block;
+    padding: 14px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+/* ---------------------------------------------------------
+   PAGE WRAPPER – Cremeweiß, Opazität 0.9, schmal
+--------------------------------------------------------- */
+
+.page-wrapper {
+    max-width: 650px;             /* wissenschaftlich schmale Breite */
+    margin: 30px auto;
+    padding: 24px;
+    background-color: rgba(255, 248, 230, 0.9);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    border-radius: 4px;
+}
+
+/* ---------------------------------------------------------
+   TEXT & BILDER
+--------------------------------------------------------- */
+
+.page-wrapper img {
+    width: 100%;                  /* exakt Textbreite */
+    height: auto;
+    margin: 20px 0;
+    display: block;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE DESIGN – unter 600px Navigation vertikal
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    .main-nav ul {
+        flex-direction: column;   /* vertikal */
+        justify-content: center;  /* weiterhin zentriert */
+    }
+
+    .main-nav a {
+        border-top: 1px solid rgba(255,255,255,0.2);
+        text-align: center;       /* Text ebenfalls zentriert */
+    }
+
+    .page-wrapper {
+        max-width: 90%;           /* flexible Breite */
+        margin: 15px auto;
+        padding: 18px;
+    }
+}
+
+.back-to-top {
+    background-color: #2f2f2f; /* oder deine Nav-Farbe */
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+.back-to-top:hover {
+    background-color: #3399ff;
+}
+
+.supersmall {
+  font-size: 0.7em;
+  vertical-align: super;
+}

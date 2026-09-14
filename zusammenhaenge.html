@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Zusammenhänge zwischen zwei Variablen – Kovarianz, Korrelation und statistische Grundlagen</title>
+
+<meta name="description" content="Positive, negative und fehlende Kovarianz, Produkt‑Moment‑Korrelation, Signifikanztest und Effektgröße – Grundlagen statistischer Zusammenhänge.">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="DEIN_VERIFIKATIONSCODE_HIER">
+
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-37CLNTBSNG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-37CLNTBSNG');
+    </script>
+
+    <!-- Gemeinsame CSS-Datei -->
+    <link rel="stylesheet" href="style.css">
+
+<link rel="canonical" href="https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+
+    {
+      "@type": "WebPage",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#webpage",
+      "url": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html",
+      "name": "Zusammenhänge zwischen zwei Variablen",
+      "description": "Erklärung von Kovarianz, Korrelation, Signifikanztest und Effektgröße anhand dreier fiktiver Beispiele."
+    },
+
+    {
+      "@type": "Person",
+      "@id": "https://urban.kuhlmei.ch/#person",
+      "name": "Eckehard Kuhlmei",
+      "jobTitle": "Psychologe, Statistikdozent",
+      "identifier": "https://orcid.org/0009-0002-9518-7244",
+      "sameAs": [
+        "https://orcid.org/0009-0002-9518-7244",
+        "https://zenodo.org/doi/10.5281/zenodo.22239282"
+      ]
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Start",
+          "item": "https://kausalitaetsnachweis.kuhlmei.ch/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Zusammenhänge",
+          "item": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html"
+        }
+      ]
+    },
+
+    {
+      "@type": "DataCatalog",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#catalog",
+      "name": "Kausalitätsnachweis – Zusammenhänge",
+      "url": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html",
+      "description": "Drei fiktive Datensätze zur Illustration positiver, negativer und fehlender Kovarianz zwischen zwei Variablen.",
+      "creator": {
+        "@type": "Person",
+        "@id": "https://urban.kuhlmei.ch/#person"
+      },
+      "dataset": [
+        "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#dataset-groesse-gewicht",
+        "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#dataset-alter-gesundheit",
+        "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#dataset-schuhgroesse-iq"
+      ]
+    },
+
+    {
+      "@type": "Dataset",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#dataset-groesse-gewicht",
+      "name": "Größe und Gewicht – Positive Kovarianz",
+      "description": "Fiktiver Datensatz mit 12 Personen zur Demonstration einer positiven Kovarianz zwischen Körpergröße und Körpergewicht.",
+      "keywords": ["Kovarianz", "positive Kovarianz", "Größe", "Gewicht", "Statistik"],
+      "variableMeasured": [
+        { "@type": "PropertyValue", "name": "Größe", "unitText": "cm" },
+        { "@type": "PropertyValue", "name": "Gewicht", "unitText": "kg" }
+      ],
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "text/html",
+        "contentUrl": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html"
+      },
+      "data": {
+        "@type": "DataTable",
+        "name": "Größe und Gewicht (12 Personen)",
+        "column": ["Person", "Größe", "Gewicht"],
+        "dataRecord": [
+          {"@type": "DataRecord", "Person": 1, "Größe": 158, "Gewicht": 60},
+          {"@type": "DataRecord", "Person": 2, "Größe": 170, "Gewicht": 65},
+          {"@type": "DataRecord", "Person": 3, "Größe": 165, "Gewicht": 70},
+          {"@type": "DataRecord", "Person": 4, "Größe": 180, "Gewicht": 75},
+          {"@type": "DataRecord", "Person": 5, "Größe": 175, "Gewicht": 80},
+          {"@type": "DataRecord", "Person": 6, "Größe": 190, "Gewicht": 85},
+          {"@type": "DataRecord", "Person": 7, "Größe": 160, "Gewicht": 68},
+          {"@type": "DataRecord", "Person": 8, "Größe": 178, "Gewicht": 72},
+          {"@type": "DataRecord", "Person": 9, "Größe": 168, "Gewicht": 77},
+          {"@type": "DataRecord", "Person": 10, "Größe": 185, "Gewicht": 75},
+          {"@type": "DataRecord", "Person": 11, "Größe": 170, "Gewicht": 83},
+          {"@type": "DataRecord", "Person": 12, "Größe": 175, "Gewicht": 78}
+        ]
+      }
+    },
+
+    {
+      "@type": "Dataset",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#dataset-alter-gesundheit",
+      "name": "Alter und Gesundheit – Negative Kovarianz",
+      "description": "Fiktiver Datensatz mit 12 Personen zur Demonstration einer negativen Kovarianz zwischen Alter und Gesundheit.",
+      "keywords": ["Kovarianz", "negative Kovarianz", "Alter", "Gesundheit", "Statistik"],
+      "variableMeasured": [
+        { "@type": "PropertyValue", "name": "Alter", "unitText": "Jahre" },
+        { "@type": "PropertyValue", "name": "Gesundheit", "unitText": "0–100 Skala" }
+      ],
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "text/html",
+        "contentUrl": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html"
+      },
+      "data": {
+        "@type": "DataTable",
+        "name": "Alter und Gesundheit (12 Personen)",
+        "column": ["Person", "Alter", "Gesundheit"],
+        "dataRecord": [
+          {"@type": "DataRecord", "Person": 1, "Alter": 25, "Gesundheit": 65},
+          {"@type": "DataRecord", "Person": 2, "Alter": 30, "Gesundheit": 80},
+          {"@type": "DataRecord", "Person": 3, "Alter": 35, "Gesundheit": 65},
+          {"@type": "DataRecord", "Person": 4, "Alter": 40, "Gesundheit": 75},
+          {"@type": "DataRecord", "Person": 5, "Alter": 45, "Gesundheit": 60},
+          {"@type": "DataRecord", "Person": 6, "Alter": 50, "Gesundheit": 60},
+          {"@type": "DataRecord", "Person": 7, "Alter": 55, "Gesundheit": 65},
+          {"@type": "DataRecord", "Person": 8, "Alter": 60, "Gesundheit": 60},
+          {"@type": "DataRecord", "Person": 9, "Alter": 65, "Gesundheit": 50},
+          {"@type": "DataRecord", "Person": 10, "Alter": 70, "Gesundheit": 45},
+          {"@type": "DataRecord", "Person": 11, "Alter": 75, "Gesundheit": 65},
+          {"@type": "DataRecord", "Person": 12, "Alter": 80, "Gesundheit": 60}
+        ]
+      }
+    },
+
+    {
+      "@type": "Dataset",
+      "@id": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html#dataset-schuhgroesse-iq",
+      "name": "Schuhgröße und IQ – Keine Kovarianz",
+      "description": "Fiktiver Datensatz mit 12 Personen zur Demonstration eines fehlenden Zusammenhangs zwischen Schuhgröße und Intelligenz.",
+      "keywords": ["Kovarianz", "keine Kovarianz", "Schuhgröße", "IQ", "Statistik"],
+      "variableMeasured": [
+        { "@type": "PropertyValue", "name": "Schuhgröße", "unitText": "EU" },
+        { "@type": "PropertyValue", "name": "IQ", "unitText": "Intelligenzquotient" }
+      ],
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "text/html",
+        "contentUrl": "https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html"
+      },
+      "data": {
+        "@type": "DataTable",
+        "name": "Schuhgröße und IQ (12 Personen)",
+        "column": ["Person", "Schuhgröße", "IQ"],
+        "dataRecord": [
+          {"@type": "DataRecord", "Person": 1, "Schuhgröße": 38, "IQ": 90},
+          {"@type": "DataRecord", "Person": 2, "Schuhgröße": 38, "IQ": 110},
+          {"@type": "DataRecord", "Person": 3, "Schuhgröße": 39, "IQ": 100},
+          {"@type": "DataRecord", "Person": 4, "Schuhgröße": 40, "IQ": 90},
+          {"@type": "DataRecord", "Person": 5, "Schuhgröße": 40, "IQ": 110},
+          {"@type": "DataRecord", "Person": 6, "Schuhgröße": 41, "IQ": 100},
+          {"@type": "DataRecord", "Person": 7, "Schuhgröße": 42, "IQ": 90},
+          {"@type": "DataRecord", "Person": 8, "Schuhgröße": 42, "IQ": 110},
+          {"@type": "DataRecord", "Person": 9, "Schuhgröße": 43, "IQ": 100},
+          {"@type": "DataRecord", "Person": 10, "Schuhgröße": 44, "IQ": 90},
+          {"@type": "DataRecord", "Person": 11, "Schuhgröße": 44, "IQ": 110},
+          {"@type": "DataRecord", "Person": 12, "Schuhgröße": 45, "IQ": 100}
+        ]
+      }
+    }
+
+  ]
+}
+</script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Start</a></li>
+            <li><a href="zusammenhaenge.html">Zusammenhänge</a></li>
+            <li><a href="kausalinterpretationen.html">Kausalinterpretationen</a></li>
+            <li><a href="experiment.html">Experiment</a></li>
+            <li><a href="regressionsanalyse.html">Multiple Regressionsanalyse</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="https://urban.kuhlmei.ch" style="color:#a3d4ff;">Hauptseite</a></li>
+        </ul>
+    </nav>
+
+    <!-- Seiteninhalt -->
+    <div class="page-wrapper">
+
+      
+<h1> Zusammenhänge zwischen zwei Variablen </h1>
+
+<p> Mit Hilfe von drei fiktiven Beispielen wird das Konzept der Kovarianz zwischen zwei Variablen für – positive, negative und nicht vorhandene Zusammenhänge – anschaulich erklärt. 
+Das standardisierte Berechnungsmaß für Zusammenhänge, die Produkt‑Moment‑Korrelation mit Signifikanztest und Effektgröße, wird vorgestellt. </p>
+
+<h2> Notwendige Bedingung beim Kausalitätsnachweis: Zusammenhang </h2>
+
+<p>Ein kausaler Zusammenhang liegt nur dann vor, wenn die Ursache zeitlich vor der Wirkung liegt, theoretisch begründet ist, alternative Erklärungen ausgeschlossen werden und ein statistisch nachweisbarer Zusammenhang besteht.</p>
+
+<p>Somit ist ein statistischer Zusammenhang eine notwendige, aber nicht hinreichende Bedingung für den Nachweis eines kausalen Zusammenhanges.</p>
+
+<h2> Kovarianz zwischen zwei Variablen </h2>
+
+<p>Wenn wir die Körpergröße von unseren Freunden und Verwandten betrachten, stellen wir fest, dass sich die Messwerte voneinander unterscheiden – sie schwanken bzw. variieren. Dasselbe gilt für die Variable Körpergewicht. Interessant wird es, wenn beide Variablen gemeinsam schwanken: Wenn höhere Werte der einen Variable tendenziell mit höheren oder niedrigeren Werten der anderen einhergehen, liegt ein statistischer Zusammenhang vor.</p>
+
+<p>Ob ein solcher Zusammenhang besteht, erkennt man daran, wie die Messwerte zweier Variablen gemeinsam variieren. Je nach Richtung und Ausprägung dieser gemeinsamen Variation unterscheidet man positive, negative und fehlende Zusammenhänge. Die folgenden Beispiele illustrieren diese drei Formen anschaulich.</p>
+
+<h3> 1. Positive Kovarianz </h3>
+
+<p>Von 12 Personen wurden die Messwerte auf den beiden Variablen x = (Körper‑) Größe (in cm) und y = (Körper‑) Gewicht (in kg) erfasst. Die Datentabelle sieht wie folgt aus:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <caption><strong>Größe und Gewicht (12 Personen)</strong></caption>
+  <tr>
+    <th>Person</th>
+    <th>Größe x (cm)</th>
+    <th>Gewicht y (kg)</th>
+  </tr>
+  <tr><td>1</td><td>158</td><td>60</td></tr>
+  <tr><td>2</td><td>170</td><td>65</td></tr>
+  <tr><td>3</td><td>165</td><td>70</td></tr>
+  <tr><td>4</td><td>180</td><td>75</td></tr>
+  <tr><td>5</td><td>175</td><td>80</td></tr>
+  <tr><td>6</td><td>190</td><td>85</td></tr>
+  <tr><td>7</td><td>160</td><td>68</td></tr>
+  <tr><td>8</td><td>178</td><td>72</td></tr>
+  <tr><td>9</td><td>168</td><td>77</td></tr>
+  <tr><td>10</td><td>185</td><td>75</td></tr>
+  <tr><td>11</td><td>170</td><td>83</td></tr>
+  <tr><td>12</td><td>175</td><td>78</td></tr>
+</table>
+
+<p>Tragen wir diese 12 Messwertpaare in ein Streudiagramm ein, erhalten wir die folgende Grafik:</p>
+
+<p><img src="streudiagramm_groesse_gewicht.png" alt="Streudiagramm Größe Gewicht"></p>
+
+<p>Zu sehen ist: Niedrigere Messwerte der Größe gehen mit eher niedrigeren Gewichtswerten einher und höhere Messwerte der Größe sind mit eher höheren Gewichtswerten gekoppelt. Werden die Messwertpaare mit einer Ellipse umrandet, dann verläuft die Ellipse von links unten nach rechts oben.</p>
+
+<p>In einem solchen Fall sprechen wir davon, dass die beiden Variablen Größe und Gewicht eine positive Kovarianz haben.</p>
+
+<h3> 2. Negative Kovarianz </h3>
+
+<p>Von 12 Personen wurden die Messwerte auf den beiden Variablen x = Alter (in Jahren) und y = Gesundheit (Skala von 0 bis 100) erfasst. Die Datentabelle:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <caption><strong>Alter und Gesundheit (12 Personen)</strong></caption>
+  <tr>
+    <th>Person</th>
+    <th>Alter x (Jahre)</th>
+    <th>Gesundheit y (0–100)</th>
+  </tr>
+  <tr><td>1</td><td>25</td><td>65</td></tr>
+  <tr><td>2</td><td>30</td><td>80</td></tr>
+  <tr><td>3</td><td>35</td><td>65</td></tr>
+  <tr><td>4</td><td>40</td><td>75</td></tr>
+  <tr><td>5</td><td>45</td><td>60</td></tr>
+  <tr><td>6</td><td>50</td><td>60</td></tr>
+  <tr><td>7</td><td>55</td><td>65</td></tr>
+  <tr><td>8</td><td>60</td><td>60</td></tr>
+  <tr><td>9</td><td>65</td><td>50</td></tr>
+  <tr><td>10</td><td>70</td><td>45</td></tr>
+  <tr><td>11</td><td>75</td><td>65</td></tr>
+  <tr><td>12</td><td>80</td><td>60</td></tr>
+</table>
+
+
+<p>Tragen wir diese 12 Messwertpaare in ein Streudiagramm ein, entsteht die folgende Grafik:</p>
+
+<p><img src="streudiagramm_alter_gesundheit.png" alt="Streudiagramm Alter Gesundheit"></p>
+
+<p>Die Grafik zeigt: Niedrigere Messwerte des Alters gehen mit eher höheren Gesundheitswerten einher und höhere Messwerte des Alters sind mit eher niedrigen Gesundheitswerten gekoppelt. Werden die Messwertpaare mit einer Ellipse umrandet, dann verläuft die Ellipse von links oben nach rechts unten.</p>
+
+<p>In einem solchen Fall sprechen wir davon, dass die beiden Variablen Alter und Gesundheit eine negative Kovarianz haben.</p>
+
+<h3>3. Keine Kovarianz </h3>
+
+<p>Von 12 Personen wurden die Messwerte auf den beiden Variablen x = Schuhgröße (europäische Norm) und y = Intelligenz (Intelligenzquotient) erfasst. Die Datentabelle:</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <caption><strong>Schuhgröße und IQ (12 Personen)</strong></caption>
+  <tr>
+    <th>Person</th>
+    <th>Schuhgröße x</th>
+    <th>IQ y</th>
+  </tr>
+  <tr><td>1</td><td>38</td><td>90</td></tr>
+  <tr><td>2</td><td>38</td><td>110</td></tr>
+  <tr><td>3</td><td>39</td><td>100</td></tr>
+  <tr><td>4</td><td>40</td><td>90</td></tr>
+  <tr><td>5</td><td>40</td><td>110</td></tr>
+  <tr><td>6</td><td>41</td><td>100</td></tr>
+  <tr><td>7</td><td>42</td><td>90</td></tr>
+  <tr><td>8</td><td>42</td><td>110</td></tr>
+  <tr><td>9</td><td>43</td><td>100</td></tr>
+  <tr><td>10</td><td>44</td><td>90</td></tr>
+  <tr><td>11</td><td>44</td><td>110</td></tr>
+  <tr><td>12</td><td>45</td><td>100</td></tr>
+</table>
+
+<p>Tragen wir diese 12 Messwertpaare in ein Streudiagramm ein, ergibt sich die folgende Grafik:</p>
+
+<p><img src="streudiagramm_schuhgroesse_intelligenz.png" alt="Streudiagramm Schuhgröße Intelligenz"></p>
+
+<p>Wir sehen folgendes: Niedrigere Messwerte der Schuhgröße sind sowohl mit niedrigeren als auch mit höheren Intelligenzwerten gekoppelt und höhere Messwerte der Schuhgröße sind sowohl mit niedrigeren als auch mit höheren Intelligenzwerten gekoppelt. Werden die Messwertpaare umrandet, dann erhalten wir einen Kreis.</p>
+
+<p>In einem solchen Fall sprechen wir davon, dass die beiden Variablen Schuhgröße und Intelligenz keine gemeinsame Kovarianz haben.</p>
+
+<h3> Produkt‑Moment‑Korrelation </h3>
+
+<p>Um die Stärke des Zusammenhangs zwischen zwei Variablen zu erfassen, wird die Produkt‑Moment‑Korrelation r berechnet (am besten mit einem Statistikprogramm wie z.B. R). Als standardisiertes Maß drückt r die Kovarianz unabhängig von Maßeinheiten und Stichprobengröße aus.</p>
+
+<p>In unseren Beispielen liegen die Korrelationen bei:</p>
+
+<ul>
+    <li>r = 0.6685 für Größe und Gewicht</li>
+    <li>r = −0.6026 für Alter und Gesundheit</li>
+    <li>r = 0 für Schuhgröße und Intelligenz</li>
+</ul>
+
+<h3> Bewertungen der Produkt‑Moment‑Korrelation </h3>
+
+<p>r = 0 können wir leicht bewerten: Zwischen den beiden Variablen Schuhgröße und Intelligenz gibt es keinen Zusammenhang.</p>
+
+<p>Aber wie sind die Werte r = 0.6685 und r = −0.6026 einzustufen?</p>
+
+<p>Der Wertebereich der Produkt‑Moment‑Korrelation verläuft von −1 über 0 bis +1.</p>
+
+<p>r = −1 bedeutet, dass ein maximaler (linearer) negativer Zusammenhang zwischen den beiden Variablen besteht. Tragen wir die Messwertpaare in ein Streudiagramm ein, dann liegen die Messwertpaare alle exakt auf einer Gerade, die von links oben nach rechts unten verläuft. Physikalisches Beispiel (für eine Strecke von z.B. 10 km): x = konstante Geschwindigkeit (in km/h) und y = Zeitdauer (in min).</p>
+
+<p>r = +1 bedeutet, dass ein maximaler (linearer) positiver Zusammenhang zwischen den beiden Variablen besteht. Tragen wir die Messwertpaare in ein Streudiagramm ein, dann liegen die Messwertpaare alle exakt auf einer Gerade, die von links unten nach rechts oben verläuft. Physikalisches Beispiel (für eine Zeitdauer von z.B. einer Stunde): x = konstante Geschwindigkeit (in km/h) und y = zurückgelegte Strecke (in km).</p>
+
+<p>Damit können wir zuordnen: Mit r = 0.6685 liegt für Größe und Gewicht ein eher großer, positiver Zusammenhang vor und mit r = −0.6026 liegt für Alter und Gesundheit ein eher großer, negativer Zusammenhang vor. Im nächsten Abschnitt wird das mit der Varianzaufklärung r<sup class="supersmall">2</sup> etwas anschaulicher erläutert.</p>
+
+<h2> Signifikanztest und Effektgröße </h2>
+
+<p>Die vierte Bedingung für den Nachweis eines kausalen Zusammenhangs – es besteht ein statistisch nachweisbarer Zusammenhang – gilt als erfüllt, wenn bei der Durchführung eines geeigneten Signifikanztests (das wäre hier ein t‑Test oder F‑Test) die statistische Nullhypothese – in der zugrunde liegenden Population ist die Korrelation gleich Null – verworfen wird. Wir gehen dann davon aus, dass der in der Stichprobe gefundene Zusammenhang nicht einfach nur zufällig zustande gekommen ist.</p>
+
+<p>Zusätzlich sollte mindestens eine kleine Effektgröße von r<sup class="supersmall">2</sup> = 0.01 vorliegen (siehe Cohen, 1988, S. 75–107). Das bedeutet, dass die beiden Variablen eine gemeinsame Varianz von 1 % haben und somit eine Varianzaufklärung von mindestens 1 % vorliegt.</p>
+
+<p>Nach der Konvention von Cohen liegt bei r<sup class="supersmall">2</sup> = 0.01 eine kleine Effektgröße, bei r<sup class="supersmall">2</sup> = 0.09 eine mittlere Effektgröße und bei r<sup class="supersmall">2</sup> = 0.25 eine große Effektgröße vor.</p>
+
+<p>Hinweis: p ist die Irrtumswahrscheinlichkeit. Im Standardfall gilt ein Ergebnis als signifikant, wenn p < 0.05 ist; dann wird die statistische Nullhypothese verworfen.</p>
+
+<p>Für das Beispiel Größe und Gewicht liegt die Korrelation bei r = 0.6685 und der t‑Test wird signifikant (p = 0.01747). Mit r<sup class="supersmall">2</sup> = 0.4469 liegt eine sehr große Effektgröße vor und die beiden Variablen haben eine gemeinsame Varianz von 44.69 %.</p>
+
+<p>Für das Beispiel Alter und Gesundheit liegt die Korrelation bei r = −0.6026 und der t‑Test wird signifikant (p = 0.03811). Mit r<sup class="supersmall">2</sup> = 0.3631 liegt eine sehr große Effektgröße vor und die beiden Variablen haben eine gemeinsame Varianz von 36.31 %.</p>
+
+<p>Für das Beispiel Schuhgröße und Intelligenz liegt die Korrelation bei r = 0 und der t‑Test wird nicht signifikant (p = 1). Mit r<sup class="supersmall">2</sup> = 0 liegt keine Effektgröße vor und die beiden Variablen haben keine gemeinsame Varianz = 0 % Varianzaufklärung.</p>
+
+<h2> Literaturverzeichnis </h2>
+
+<p>Cohen, J. (1988). <em>Statistical power analysis for the behavioral sciences</em> (2nd ed.). Hillsdale, NJ: Lawrence Erlbaum.</p>
+<p><a href="https://doi.org/10.4324/9780203771587">https://doi.org/10.4324/9780203771587</a></p>
+
+<!-- Zentrierter Link zurück -->
+<div style="text-align:center; margin-top:40px;">
+    <a href="https://urban.kuhlmei.ch/kausalitätsnachweis.html" class="back-link" style="color:#a3d4ff;">
+        Zurück zur Hauptseite
+    </a>
+</div>
+
+
+</div>  <!-- page-wrapper schließen -->
+
+<!-- Button Nach oben -->
+<p class="back-to-top-wrapper" style="position:fixed; bottom:20px; right:20px;">
+    <a href="#top" class="back-to-top">Nach oben</a>
+</p>
+
+</body>
