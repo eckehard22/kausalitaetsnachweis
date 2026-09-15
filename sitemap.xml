@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Startseite -->
+  <url>
+    <loc>https://kausalitaetsnachweis.kuhlmei.ch/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Zusammenhänge -->
+  <url>
+    <loc>https://kausalitaetsnachweis.kuhlmei.ch/zusammenhaenge.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Kausalinterpretationen -->
+  <url>
+    <loc>https://kausalitaetsnachweis.kuhlmei.ch/kausalinterpretationen.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Experiment -->
+  <url>
+    <loc>https://kausalitaetsnachweis.kuhlmei.ch/experiment.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Multiple Regressionsanalyse -->
+  <url>
+    <loc>https://kausalitaetsnachweis.kuhlmei.ch/regressionsanalyse.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Impressum -->
+  <url>
+    <loc>https://kausalitaetsnachweis.kuhlmei.ch/impressum.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+
+</urlset>
