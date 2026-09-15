@@ -28,7 +28,7 @@ body {
     padding: 0;
 
     display: flex;
-    justify-content: center;      /* ZENTRIERTE NAVIGATION */
+    justify-content: center;
     align-items: center;
 }
 
@@ -42,10 +42,22 @@ body {
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
+
+    border-bottom: 3px solid transparent;   /* Basislinie unsichtbar */
 }
 
+/* Hover-Effekt */
 .main-nav a:hover {
     background-color: rgba(255,255,255,0.15);
+}
+
+/* ---------------------------------------------------------
+   AKTIVER NAVIGATIONSPUNKT – Unterstrichen
+--------------------------------------------------------- */
+
+.main-nav a.active {
+    border-bottom: 3px solid #ffffff;       /* klare Unterstreichung */
+    text-underline-offset: 4px;
 }
 
 /* ---------------------------------------------------------
@@ -53,7 +65,7 @@ body {
 --------------------------------------------------------- */
 
 .page-wrapper {
-    max-width: 650px;             /* wissenschaftlich schmale Breite */
+    max-width: 650px;
     margin: 30px auto;
     padding: 24px;
     background-color: rgba(255, 248, 230, 0.9);
@@ -66,7 +78,7 @@ body {
 --------------------------------------------------------- */
 
 .page-wrapper img {
-    width: 100%;                  /* exakt Textbreite */
+    width: 100%;
     height: auto;
     margin: 20px 0;
     display: block;
@@ -79,34 +91,43 @@ body {
 @media (max-width: 600px) {
 
     .main-nav ul {
-        flex-direction: column;   /* vertikal */
-        justify-content: center;  /* weiterhin zentriert */
+        flex-direction: column;
+        justify-content: center;
     }
 
     .main-nav a {
         border-top: 1px solid rgba(255,255,255,0.2);
-        text-align: center;       /* Text ebenfalls zentriert */
+        text-align: center;
     }
 
     .page-wrapper {
-        max-width: 90%;           /* flexible Breite */
+        max-width: 90%;
         margin: 15px auto;
         padding: 18px;
     }
 }
 
+/* ---------------------------------------------------------
+   BACK TO TOP BUTTON
+--------------------------------------------------------- */
+
 .back-to-top {
-    background-color: #2f2f2f; /* oder deine Nav-Farbe */
+    background-color: #2f2f2f;
     color: white;
     padding: 8px 14px;
     border-radius: 6px;
     text-decoration: none;
 }
+
 .back-to-top:hover {
     background-color: #3399ff;
 }
 
+/* ---------------------------------------------------------
+   SUPERSMALL
+--------------------------------------------------------- */
+
 .supersmall {
-  font-size: 0.7em;
-  vertical-align: super;
+    font-size: 0.7em;
+    vertical-align: super;
 }
