@@ -134,22 +134,22 @@
 
 <p>Die hierarchische Regression ermöglicht es, den Einfluss dieser Störvariablen herauszupartialisieren – also statistisch zu entfernen –, um zu prüfen, ob eine Variable x einen eigenständigen Beitrag zur Erklärung der Kriminalität y leistet.</p>
 
-<h2>Grundprinzip der hierarchischen Regression</h2>
+<h2>1. Grundprinzip der hierarchischen Regression</h2>
 
-<p>1. <strong>Block 1:</strong> Zuerst werden alle relevanten Störvariablen z in das Modell aufgenommen. Das Modell erklärt nun die Varianz in y, die durch diese Störvariablen verursacht wird.</p>
+<h3>1.1 Block 1</h3> Zuerst werden alle relevanten Störvariablen z in das Modell aufgenommen. Das Modell erklärt nun die Varianz in y, die durch diese Störvariablen verursacht wird.
 
-<p>2. <strong>Block 2:</strong> Danach wird die interessierende Variable x hinzugefügt. Jetzt prüft man, ob x zusätzliche Varianz in y erklärt, nachdem der Einfluss der Störvariablen bereits berücksichtigt wurde.</p>
+<h3>1.2 Block 2</h3> Danach wird die interessierende Variable x hinzugefügt. Jetzt prüft man, ob x zusätzliche Varianz in y erklärt, nachdem der Einfluss der Störvariablen bereits berücksichtigt wurde.</p>
 
 <p>Wenn x nach Kontrolle von z weiterhin signifikant ist, besitzt x einen eigenständigen kausalen Beitrag.</p>
 
-<h2>Anschauliches Beispiel aus der Kriminalitätsforschung</h2>
+<h2>2. Anschauliches Beispiel aus der Kriminalitätsforschung</h2>
 
-<h3>Fragestellung</h3>
+<h3>2.1 Fragestellung</h3>
 <p>Wir wollen untersuchen, ob <strong>kulturspezifische Prägungen (x)</strong> einen eigenständigen Einfluss auf den <strong>Schweregrad der Kriminalität (y)</strong> haben.</p>
 
 <p>Ein Experiment wäre unmöglich: Man kann Menschen nicht zufällig bestimmten kulturellen Milieus zuweisen oder sie künstlich „prägen“. Also bleibt nur die statistische Kontrolle.</p>
 
-<h3>Block 1: Störvariablen einfügen</h3>
+<h3>2.2 Block 1: Störvariablen einfügen</h3>
 
 <p>Zuerst werden die wichtigsten bekannten Einflussfaktoren auf Kriminalität in das Modell aufgenommen:</p>
 
@@ -165,7 +165,7 @@
 
 <p><strong>Interpretation:</strong> Wir wissen jetzt, wie gut man Kriminalität allein durch Alter, Geschlecht, Bildung, Armut und sozialen Status vorhersagen kann.</p>
 
-<h3>Block 2: Kulturspezifische Prägung hinzufügen</h3>
+<h3>2.3 Block 2: Kulturspezifische Prägung hinzufügen</h3>
 
 <p>Im zweiten Schritt wird die Variable <strong>kulturspezifische Prägung (x)</strong> in das Modell aufgenommen.</p>
 
@@ -179,7 +179,7 @@
 <h4>Wenn nein:</h4>
 <p>Der Zusammenhang zwischen kultureller Prägung und Kriminalität war nur scheinbar – er verschwindet, sobald die Störvariablen kontrolliert werden.</p>
 
-<h2>Warum dieses Vorgehen kausale Aussagen stärkt</h2>
+<h2>3. Warum dieses Vorgehen kausale Aussagen stärkt</h2>
 
 <p>Durch das Herauspartialisieren der Störvariablen wird statistisch sichergestellt:</p>
 

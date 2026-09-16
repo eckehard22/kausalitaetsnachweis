@@ -222,19 +222,19 @@
 <p> Mit Hilfe von drei fiktiven Beispielen wird das Konzept der Kovarianz zwischen zwei Variablen für – positive, negative und nicht vorhandene Zusammenhänge – anschaulich erklärt. 
 Das standardisierte Berechnungsmaß für Zusammenhänge, die Produkt‑Moment‑Korrelation mit Signifikanztest und Effektgröße, wird vorgestellt. </p>
 
-<h2> Notwendige Bedingung beim Kausalitätsnachweis: Zusammenhang </h2>
+<h2> 1. Notwendige Bedingung beim Kausalitätsnachweis: Zusammenhang </h2>
 
 <p>Ein kausaler Zusammenhang liegt nur dann vor, wenn die Ursache zeitlich vor der Wirkung liegt, theoretisch begründet ist, alternative Erklärungen ausgeschlossen werden und ein statistisch nachweisbarer Zusammenhang besteht.</p>
 
 <p>Somit ist ein statistischer Zusammenhang eine notwendige, aber nicht hinreichende Bedingung für den Nachweis eines kausalen Zusammenhanges.</p>
 
-<h2> Kovarianz zwischen zwei Variablen </h2>
+<h2> 2. Kovarianz zwischen zwei Variablen </h2>
 
 <p>Wenn wir die Körpergröße von unseren Freunden und Verwandten betrachten, stellen wir fest, dass sich die Messwerte voneinander unterscheiden – sie schwanken bzw. variieren. Dasselbe gilt für die Variable Körpergewicht. Interessant wird es, wenn beide Variablen gemeinsam schwanken: Wenn höhere Werte der einen Variable tendenziell mit höheren oder niedrigeren Werten der anderen einhergehen, liegt ein statistischer Zusammenhang vor.</p>
 
 <p>Ob ein solcher Zusammenhang besteht, erkennt man daran, wie die Messwerte zweier Variablen gemeinsam variieren. Je nach Richtung und Ausprägung dieser gemeinsamen Variation unterscheidet man positive, negative und fehlende Zusammenhänge. Die folgenden Beispiele illustrieren diese drei Formen anschaulich.</p>
 
-<h3> 1. Positive Kovarianz </h3>
+<h3> 2.1 Positive Kovarianz </h3>
 
 <p>Von 12 Personen wurden die Messwerte auf den beiden Variablen x = (Körper‑) Größe (in cm) und y = (Körper‑) Gewicht (in kg) erfasst. Die Datentabelle sieht wie folgt aus:</p>
 
@@ -267,7 +267,7 @@ Das standardisierte Berechnungsmaß für Zusammenhänge, die Produkt‑Moment‑
 
 <p>In einem solchen Fall sprechen wir davon, dass die beiden Variablen Größe und Gewicht eine positive Kovarianz haben.</p>
 
-<h3> 2. Negative Kovarianz </h3>
+<h3> 2.2 Negative Kovarianz </h3>
 
 <p>Von 12 Personen wurden die Messwerte auf den beiden Variablen x = Alter (in Jahren) und y = Gesundheit (Skala von 0 bis 100) erfasst. Die Datentabelle:</p>
 
@@ -301,7 +301,7 @@ Das standardisierte Berechnungsmaß für Zusammenhänge, die Produkt‑Moment‑
 
 <p>In einem solchen Fall sprechen wir davon, dass die beiden Variablen Alter und Gesundheit eine negative Kovarianz haben.</p>
 
-<h3>3. Keine Kovarianz </h3>
+<h3>2.3 Keine Kovarianz </h3>
 
 <p>Von 12 Personen wurden die Messwerte auf den beiden Variablen x = Schuhgröße (europäische Norm) und y = Intelligenz (Intelligenzquotient) erfasst. Die Datentabelle:</p>
 
@@ -334,7 +334,7 @@ Das standardisierte Berechnungsmaß für Zusammenhänge, die Produkt‑Moment‑
 
 <p>In einem solchen Fall sprechen wir davon, dass die beiden Variablen Schuhgröße und Intelligenz keine gemeinsame Kovarianz haben.</p>
 
-<h3> Produkt‑Moment‑Korrelation </h3>
+<h3> 2.4 Produkt‑Moment‑Korrelation </h3>
 
 <p>Um die Stärke des Zusammenhangs zwischen zwei Variablen zu erfassen, wird die Produkt‑Moment‑Korrelation r berechnet (am besten mit einem Statistikprogramm wie z.B. R). Als standardisiertes Maß drückt r die Kovarianz unabhängig von Maßeinheiten und Stichprobengröße aus.</p>
 
@@ -346,7 +346,7 @@ Das standardisierte Berechnungsmaß für Zusammenhänge, die Produkt‑Moment‑
     <li>r = 0 für Schuhgröße und Intelligenz</li>
 </ul>
 
-<h3> Bewertungen der Produkt‑Moment‑Korrelation </h3>
+<h3> 2.5 Bewertungen der Produkt‑Moment‑Korrelation </h3>
 
 <p>r = 0 können wir leicht bewerten: Zwischen den beiden Variablen Schuhgröße und Intelligenz gibt es keinen Zusammenhang.</p>
 
@@ -360,7 +360,7 @@ Das standardisierte Berechnungsmaß für Zusammenhänge, die Produkt‑Moment‑
 
 <p>Damit können wir zuordnen: Mit r = 0.6685 liegt für Größe und Gewicht ein eher großer, positiver Zusammenhang vor und mit r = −0.6026 liegt für Alter und Gesundheit ein eher großer, negativer Zusammenhang vor. Im nächsten Abschnitt wird das mit der Varianzaufklärung r<sup class="supersmall">2</sup> etwas anschaulicher erläutert.</p>
 
-<h2> Signifikanztest und Effektgröße </h2>
+<h2> 3. Signifikanztest und Effektgröße </h2>
 
 <p>Die vierte Bedingung für den Nachweis eines kausalen Zusammenhangs – es besteht ein statistisch nachweisbarer Zusammenhang – gilt als erfüllt, wenn bei der Durchführung eines geeigneten Signifikanztests (das wäre hier ein t‑Test oder F‑Test) die statistische Nullhypothese – in der zugrunde liegenden Population ist die Korrelation gleich Null – verworfen wird. Wir gehen dann davon aus, dass der in der Stichprobe gefundene Zusammenhang nicht einfach nur zufällig zustande gekommen ist.</p>
 
@@ -376,7 +376,7 @@ Das standardisierte Berechnungsmaß für Zusammenhänge, die Produkt‑Moment‑
 
 <p>Für das Beispiel Schuhgröße und Intelligenz liegt die Korrelation bei r = 0 und der t‑Test wird nicht signifikant (p = 1). Mit r<sup class="supersmall">2</sup> = 0 liegt keine Effektgröße vor und die beiden Variablen haben keine gemeinsame Varianz = 0 % Varianzaufklärung.</p>
 
-<h2> Literaturverzeichnis </h2>
+<h2> 4. Literaturverzeichnis </h2>
 
 <p>Cohen, J. (1988). <em>Statistical power analysis for the behavioral sciences</em> (2nd ed.). Hillsdale, NJ: Lawrence Erlbaum.</p>
 <p><a href="https://doi.org/10.4324/9780203771587">https://doi.org/10.4324/9780203771587</a></p>
